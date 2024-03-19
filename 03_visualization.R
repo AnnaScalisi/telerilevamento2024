@@ -34,3 +34,33 @@ im.plotRGB(stacksent, 4, 2, 1) #sostituisco la banda del rosso con quella del ni
 
 # esercizio: 
 par(mfrow=c())
+
+dev.off()
+im.plotRGB(stacksent, 4, 3, 2) 
+
+par(mfrow=c(1, 3)) #chi cambia i colori e la nir la banda non correlata alle altre
+im.plotRGB(stacksent, 3, 2, 1) #n natural colors
+im.plotRGB(stacksent, 4, 2, 1) # nir on red
+im.plotRGB(stacksent, 4, 3, 1)
+
+dev.off()
+
+# nir on green tutto quello che è nell'infrarosso diventa verde fluo (la vegetazione), il suolo nudo diventa rosa
+im.plotRGB(stacksent, 3, 4, 2) #nir on green
+
+# nir on blue suolo nudo diventa giallo colore che colpisce di più l'occhio umano
+im.plotRGB(stacksent, 3, 2, 4) # nir on blue
+
+# multiframe con le 4 immagini insieme
+par(mfrow=c(2, 2))
+im.plotRGB(stacksent, 3, 2, 1) #n natural colors
+im.plotRGB(stacksent, 4, 2, 1) # nir on red
+im.plotRGB(stacksent, 3, 4, 2) #nir on green
+im.plotRGB(stacksent, 3, 2, 4) # nir on blue
+
+# correlation of information
+pair(stacksent) # nella diagonale abbiamo le bande, e le loro distribuzioni di frequenza. I grafici sono la distribuzione dei vari pixel banda contro banda. Indice di correlazione di Pearson va da 0 a 1.
+
+# info sulle immagini
+b2
+ncell(b2) # calcolo numero di pixel
